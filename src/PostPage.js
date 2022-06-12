@@ -15,7 +15,7 @@ const PostPage = () => {
 
   
     const getPosts = async (calledFrom = 'function') => {
-      await fetch(`http://localhost:8080/posts/${postid}`, {
+      await fetch(`https://immense-meadow-31946.herokuapp.com/${postid}`, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
