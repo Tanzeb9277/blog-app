@@ -1,38 +1,241 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Playfair+Display+SC&family=Ubuntu:wght@500&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+  height:10vh;
+  background-color:white;
+  text-align:center;
+  line-height:10vh;
+  border-bottom: 2px solid black;
+  margin-bottom:20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header h1{
+  font-family: 'Playfair Display SC', serif;
+  letter-spacing: .2rem;
+  font-size:calc(16px + 3vw);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.posts{
+  width: 50vw;
+  margin:auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  gap: 20px;
+}
+.post-container{
+  width:40vw;
+  display:flex;
+  border:1px solid grey;
+  box-shadow:1px 1px 1px black;
+  gap:10px;
+  padding:10px 0;
+  flex-direction:column;
+
+}
+
+.post-container a{
+  align-self: center;
+  text-decoration: none;
+  color: black;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.post-container a:hover{
+  background-color: black;
+  color: aliceblue;
+}
+
+.banner-img{
+  background-image: url('https://i.pinimg.com/736x/9b/17/df/9b17df5d1204e4f02f3d9465c61bab51.jpg');
+  background-size: cover;
+  text-align:center;
+  line-height:25vh;
+  width:100vw;
+  height:25vh;
+  
+}
+.banner-img h1{
+  font-family: 'Playfair Display SC', serif;
+  letter-spacing: .2rem;
+  font-size:calc(16px + 3vw);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.post-info {
+  margin: 0 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.post-author::before{
+  content: "•" ;
+  color: palevioletred;
+}
+
+.post-title {
+  font-size: calc(16px + 1vw);
+}
+
+.name-date {
+  display: flex;
+  gap: 5px;
+  color: gray;
+}
+
+.post-img-container{
+  width:90%;
+  margin:auto;
+}
+.post-img-container img{
+  width:100%;
+}
+.post {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post-body > * {
+  padding: 10px 0;
+}
+
+.post-text{
+  font-family: 'Gilda Display', serif;
+  font-size: calc(12px + 1vw);
+  line-height: calc(16px + 1.5vw);
+}
+
+.img-container {
+  width: 40%;
+}
+
+.img-container img{
+  width: 100%;
+}
+
+.comments{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.new-comment form{
+  display: flex;
+  flex-direction: column;
+  width: calc(360px + 3vw);
+}
+
+.new-comment form input{
+  height: calc(1vh + 24px);
+  font-size: 18px;
+}
+.comment-container > *{
+  padding: 10px 0;
+}
+.comment-container > hr{
+  padding: 0;
+}
+
+.comment-date{
+  font-size: 12px;
+  color: gray;
+}
+
+footer{
+  background-color: var(--bg-black);
+  color: black;
+  display: flex;
+  border-top: 2px solid black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  gap:15px;
+  margin-top: 5vh;
+  padding: 10px 0;
+  
+}
+
+footer p {
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+@media (max-width: 480px) {
+  .posts{
+    width: 90vw;
+    margin: auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .post-container{
+    width: auto;
+  }
+
+  .post{
+    width: 90vw;
+    margin: auto;
+  }
+  .img-container{
+    width: 90%;
+    margin: auto;
+  }
+  .new-comment form{
+    width: calc(300px + 3vw);
   }
 }
