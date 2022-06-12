@@ -7,7 +7,7 @@ import Comment from './Comment';
 
 const PostPage = () => {
     let { postid } = useParams();
-    let postUrl = `http://localhost:8080/${postid}/new-comment`
+    let postUrl = `https://immense-meadow-31946.herokuapp.com/${postid}/new-comment`
 
 
     const [post, setPost] = useState({});
@@ -15,7 +15,7 @@ const PostPage = () => {
 
   
     const getPosts = async (calledFrom = 'function') => {
-      await fetch(`https://immense-meadow-31946.herokuapp.com/${postid}`, {
+      await fetch(`https://immense-meadow-31946.herokuapp.com/posts/${postid}`, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
