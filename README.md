@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Blog-app
+The Blog app is a visual representation of the [blog api](https://github.com/Tanzeb9277/blog-api) working as intended, allowing users to view and comment on published posts.  
+[Live Demo](https://tanzeb9277.github.io/blog-app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
