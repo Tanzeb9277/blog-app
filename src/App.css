@@ -141,6 +141,7 @@ table {
 .post-img-container img{
   width:100%;
 }
+
 .post {
   width: 60%;
   margin: auto;
@@ -149,6 +150,9 @@ table {
   gap: 10px;
 }
 
+#back-button{
+  margin-top: 15px;
+}
 .post-body > * {
   padding: 10px 0;
 }

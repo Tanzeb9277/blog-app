@@ -25,7 +25,7 @@ class Post extends Component{
                     <img src={this.props.img}/> 
                 </div>
                 
-                <Link to={this.props.url}>Read More</Link>
+                <Link to={"posts/" + this.props.url}>Read More</Link>
             </div>
         )
     }
