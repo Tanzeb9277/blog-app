@@ -58,34 +58,35 @@ function App(props) {
   }, [])
   
  
-
-
-
-
-
+  function geiImage(text){
+    let divToParse = document.createElement('div');
+    divToParse.innerHTML = text;
+    let img = divToParse.getElementsByTagName('img')
+    
+    return(img[0].src)
+  }
   
-
-  return (
-    <div className="App">
-      <div className="header">
-        <h1>blogology</h1>
+    return (
+      <div className="App">
+        <div className="header">
+          <h1>blogology</h1>
+        </div>
+        <div className='posts'>
+           {posts.map((post) => {
+                return <Post
+                  author={post.fields.author_name}
+                  date={formatDate(post.fields.date)}
+                  title={post.fields.title}
+                  img={geiImage(post.fields.text)}
+                  url={post.pk}
+  
+                  
+                />;
+              })}
+        </div>
+        <footer><p>Designed and Developed by Tanzeem Xhidori &copy; Copyright 2022</p></footer>
       </div>
-      <div className='posts'>
-         {posts.map((post) => {
-              return <Post
-                author={post.fields.author_name}
-                date={formatDate(post.fields.date)}
-                title={post.fields.title}
-
-                url={post.pk}
-
-                
-              />;
-            })}
-      </div>
-      <footer><p>Designed and Developed by Tanzeem Xhidori &copy; Copyright 2022</p></footer>
-    </div>
-  );
-}
-
-export default App;
+    );
+  }
+  
+  export default App;
