@@ -1,10 +1,12 @@
 import './App.css';
 import Post from './Post';
 import { useState, useEffect } from 'react';
+import React, { Suspense } from "react";
 
 function App(props) {
 
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   
   const getPosts = async (calledFrom = 'function') => {
@@ -21,8 +23,9 @@ function App(props) {
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     }).then(response => response.json())
         .then(data => {
+          setIsLoading(false);
           setPosts(data)
-          console.log(data)
+          
         })
   
        // parses JSON response into native JavaScript objects
@@ -72,17 +75,20 @@ function App(props) {
           <h1>blogology</h1>
         </div>
         <div className='posts'>
-           {posts.map((post) => {
-                return <Post
-                  author={post.fields.author_name}
-                  date={formatDate(post.fields.date)}
-                  title={post.fields.title}
-                  img={geiImage(post.fields.text)}
-                  url={post.pk}
-  
-                  
-                />;
-              })}
+          
+        {isLoading ? <div> <h1>Don't worry I'm sure it'll load soon...</h1><img src='https://media1.giphy.com/media/Qt1jk5Q49C3h5CrlBe/giphy.gif?cid=ecf05e47yhx0zneh0tk43v768anrf00rjm4gfl5rga8j6fbc&rid=giphy.gif&ct=g'></img></div> : posts.map((post) => {
+            
+            return<Post
+              author={post.fields.author_name}
+              date={formatDate(post.fields.date)}
+              title={post.fields.title}
+              img={geiImage(post.fields.text)}
+              url={post.pk}
+            />;
+            
+          })}
+
+              
         </div>
         <footer><p>Designed and Developed by Tanzeem Xhidori &copy; Copyright 2022</p></footer>
       </div>
